@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <link href='https://fonts.googleapis.com/css?family=Lato:300,900' rel='stylesheet' type='text/css'>
+
+    <style>
+     body{
+        background-color: whitesmoke;
+     }
+
+    :root {
+      --accent-color: #E8336D;
+    }
+
+     svg {
+        background-color: white;
+        font-family: 'Lato';
+     }
+
+     path.line {
+        fill: none;
+        stroke: lightgrey;
+        stroke-width: 1px;
+      }
+
+    .annotation path {
+      stroke: var(--accent-color);
+      fill: none;
+    }
+
+    .annotation path.connector-arrow, 
+    .title text, .annotation text,
+    .annotation.callout.circle .annotation-subject path{
+      fill: var(--accent-color);
+    }
+    .annotation-note-bg {
+      fill: rgba(255, 255, 255, 0);
+    }
+
+    .annotation-note-title {
+      font-weight: bold;
+    }
+
+    .annotation.xythreshold {
+      cursor: move;
+    }
+
+    .hidden {
+      display: none;
+    }
+
+    text.hover {
+      font-size: .7em;
+    }
+
+    text.title {
+      font-size: 1.1em;
+    }
+    </style>
+</head>
+<body>
+    <svg width=960 height=500>
+      <text class="title" x=500 y=50>How Florida Registers to Vote</text>
+      <text x=500 y=80>Methods of New Voter Registration by Year</text>
+    </svg>
+    <script src="https://d3js.org/d3.v4.js"></script>
+    <script src="https://rawgit.com/susielu/d3-annotation/master/d3-annotation.min.js"></script>
+    <script src="index.js"></script>
+</body>
+</html>

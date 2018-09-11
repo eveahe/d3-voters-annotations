@@ -4,6 +4,7 @@
 // line chart code: https://bl.ocks.org/d3noob/402dd382a51a4f6eea487f9a35566de0
 // time series from: http://bl.ocks.org/mbostock/3883245
 // set the dimensions and margins of the graph
+// colors thanks to http://vrl.cs.brown.edu/color
 var margin = { top: 20, right: 20, bottom: 30, left: 80 },
     height = 500 - margin.top - margin.bottom;
 var maxWidth = 860 - margin.left - margin.right;
@@ -12,6 +13,7 @@ var width = 860 - margin.left - margin.right;
 var parseTime = d3.timeParse("%d-%b-%Y");
 var _x = d3.scaleTime().range([0, width]);
 var _y = d3.scaleLinear().range([height, 0]);
+var line_colors = ["rgb(238,128,254)", "rgb(147,130,233)", "rgb(149,63,208)", "rgb(130,160,202)", "rgb(27,72,188)"]
 
 var valueline = d3.line().x(function (d) {
   return _x(d.date);
@@ -66,35 +68,38 @@ d3.tsv("test.tsv", function (error, data) {
     return d.other;
   })]);
 
-  svg.append("path").data([data]).attr("class", "line").attr("d", valueline);
+  svg.append("path").data([data])
+        .attr("class", "line")
+        .attr("stroke", line_colors[0])
+        .attr("d", valueline);
 
          // Add the valueline2 path.
   svg.append("path")
          .data([data])
          .attr("class", "line")
          .attr("fill", "none")
-         .style("stroke", "blue")
+         .style("stroke", line_colors[1])
          .attr("d", valueline2);
   
   svg.append("path")
          .data([data])
          .attr("class", "line")
          .attr("fill", "none")
-         .style("stroke", "red")
+         .style("stroke", line_colors[2])
          .attr("d", valueline3);
   
   svg.append("path")
          .data([data])
          .attr("class", "line")
          .attr("fill", "none")
-         .style("stroke", "orange")
+         .style("stroke", line_colors[3])
          .attr("d", valueline4);
   
   svg.append("path")
          .data([data])
          .attr("class", "line")
          .attr("fill", "none")
-         .style("stroke", "green")
+         .style("stroke", line_colors[4])
          .attr("d", valueline5);
 
   svg.append("g").attr("class", "x-axis").attr("transform", "translate(0," + height + ")").call(d3.axisBottom(_x));
@@ -143,38 +148,33 @@ d3.tsv("test.tsv", function (error, data) {
   svg.append("g").attr("class", "annotation-test").call(makeAnnotations);
 
   svg.selectAll("g.annotation-connector, g.annotation-note").classed("hidden", true);
+
+  var ordinal = d3.scaleOrdinal()
+  .domain(["Mail", "Public Assistance Offices", "DMV", "Online", "Other*"])
+  .range(line_colors);
+
+// var svg = d3.select("svg");
+
+svg.append("g")
+  .attr("class", "legendOrdinal")
+  .attr("transform", "translate(800,10)");
+
+
+var legendOrdinal = d3.legendColor()
+  //d3 symbol creates a path-string, for example
+  //"M0,-8.059274488676564L9.306048591020996,
+  //8.059274488676564 -9.306048591020996,8.059274488676564Z"
+  .shape("path", d3.symbol().type(d3.symbolCircle).size(150)())
+  .shapePadding(10)
+  //use cellFilter to hide the "e" cell
+  // .cellFilter(function(d){ return d.label !== "e" })
+  .scale(ordinal);
+
+svg.select(".legendOrdinal")
+  .call(legendOrdinal);
+          
+
+
 });
 
-
-var legend_keys = ["Mail", "Asst", "DHSMV", "Other", "Online"]
-var color_keys=["red", "yellow", "red", "pink", "teal"]
-
-var lineLegend = svg.selectAll(".lineLegend").data(legend_keys)
-    .enter().append("g")
-    .attr("class","lineLegend")
-    .attr("transform", function (d,i) {
-            return "translate(" + width + "," + (i*20)+")";
-        });
-
-lineLegend.append("text").text(function (d) {return d;})
-    .attr("transform", "translate(15,9)") //align texts with boxes
-    .attr("x", 10)
-    .attr("y", 350);
-
-lineLegend.append("rect")
-    //Trying to get these colors right!!
-    // .attr("fill", function (d,i) {return color_keys[i]; console.log(i)})
-    .style("fill", "darkOrange")
-    .attr("width", 10).attr("height", 10)
-    .attr("x", 10)
-    .attr("y", 350);
-
-
-    //To Do! 
-    //Fix colors on lines!
-    //Fix colors on label!
-    //Fix Annotation Text
-    //Fix Title
-    //Add source for data
-    //Add footer
-    //etc!
+          

@@ -157,7 +157,7 @@ d3.tsv("test.tsv", function (error, data) {
 
 svg.append("g")
   .attr("class", "legendOrdinal")
-  .attr("transform", "translate(800,10)");
+  .attr("transform", "translate(570,10)");
 
 
 var legendOrdinal = d3.legendColor()
@@ -166,8 +166,7 @@ var legendOrdinal = d3.legendColor()
   //8.059274488676564 -9.306048591020996,8.059274488676564Z"
   .shape("path", d3.symbol().type(d3.symbolCircle).size(150)())
   .shapePadding(10)
-  //use cellFilter to hide the "e" cell
-  // .cellFilter(function(d){ return d.label !== "e" })
+
   .scale(ordinal);
 
 svg.select(".legendOrdinal")

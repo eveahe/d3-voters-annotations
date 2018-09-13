@@ -1,0 +1,122 @@
+body{
+    background-color: white;
+ }
+
+ h1{
+    padding-top: 25px;
+    padding-left: 25px;
+    margin-bottom:10px;
+    font-family: 'Lato';
+    font-size: 4em;
+    color: pink;
+    text-shadow: -1px 1px 0 #000,
+              1px 1px 0 #000,
+             1px -1px 0 #000,
+             -1px -1px 0 #000;
+ }
+
+ h2{
+    padding-left: 25px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    font-family: 'Lato';
+    color: pink;
+    font-size: 2em;
+    text-shadow: -1px 1px 0 #000,
+              1px 1px 0 #000,
+             1px -1px 0 #000,
+             -1px -1px 0 #000;
+ }
+
+
+ h3{
+    padding-left: 25px;
+    margin-top: 5px;
+    font-family: 'Lato';
+    color: yellow;
+    font-size: 2em;
+    text-shadow: -1px 1px 0 #000,
+              1px 1px 0 #000,
+             1px -1px 0 #000,
+             -1px -1px 0 #000;
+    margin-bottom: 25px;
+ }
+
+:root {
+  --accent-color: black;
+}
+
+ svg {
+    background-color: white;
+    font-family: 'Lato';
+ }
+
+ path.line {
+    fill: none;
+    stroke-width: 1.5px;
+  }
+
+.annotation path {
+  stroke: var(--accent-color);
+  fill: none;
+}
+
+.annotation path.connector-arrow, 
+.title text, .annotation text,
+.annotation.callout.circle .annotation-subject path{
+  fill: var(--accent-color);
+}
+.annotation-note-bg {
+  fill: rgba(255, 255, 255, 0);
+}
+
+/* .annotation-note-title {
+  font-weight: bold;
+} */
+
+.annotation.xythreshold {
+  cursor: move;
+}
+
+.hidden {
+  display: none;
+}
+
+text.hover {
+  font-size: .7em;
+}
+
+text.title {
+  font-size: 1.1em;
+}
+
+a, a:visited{
+    color: black !important;
+    text-decoration: none;
+    border-bottom: 1px solid yellow;
+    box-shadow: 0px -4px 0p yellow inset;
+}
+
+ a:hover {
+    background-color: yellow;
+}
+
+
+footer {
+margin-top: 50px;
+font-family: 'Lato';
+text-align: center;
+font-size: .7em;
+    }
+
+.copy {
+margin-top: 25px;
+margin-left: 25px;
+margin-right: 50px;
+font-family: lato;
+text-align:justify;
+}
+
+ul {
+list-style-type: square;
+}

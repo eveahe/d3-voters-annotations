@@ -19,26 +19,26 @@ var line_colors = ["rgb(138,225,249)", "rgb(147,130,233)", "rgb(69,141,166)", "r
 var valueline = d3.line().x(function (d) {
   return _x(d.date);
 }).y(function (d) {
-  return _y(d.mail);
+  return _y(d.dhsmv);
 });
 
 //Adding the additional lines, need to figure out how to make this more DRY!
 var valueline2 = d3.line().x(function (d) {
   return _x(d.date);
 }).y(function (d) {
-  return _y(d.asst);
+  return _y(d.mail);
 });
 
 var valueline3 = d3.line().x(function (d) {
   return _x(d.date);
 }).y(function (d) {
-  return _y(d.dhsmv);
+  return _y(d.ovr);
 });
 
 var valueline4 = d3.line().x(function (d) {
   return _x(d.date);
 }).y(function (d) {
-  return _y(d.ovr);
+  return _y(d.asst);
 });
 
 var valueline5 = d3.line().x(function (d) {
@@ -151,7 +151,7 @@ d3.tsv("test.tsv", function (error, data) {
   svg.selectAll("g.annotation-connector, g.annotation-note").classed("hidden", true);
 
   var ordinal = d3.scaleOrdinal()
-  .domain(["Mail", "Public Assistance Offices", "DMV", "Online", "Voter Registration Drives*"])
+  .domain(["DMV", "Mail", "Online","Public Assistance Offices", "Voter Registration Drives*"])
   .range(line_colors);
 
 // var svg = d3.select("svg");

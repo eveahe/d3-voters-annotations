@@ -3,117 +3,24 @@
 <head>
     <meta charset="utf-8">
     <link href='https://fonts.googleapis.com/css?family=Lato:300,900' rel='stylesheet' type='text/css'>
-
-    <style>
-     body{
-        background-color: white;
-     }
-
-     h1{
-        padding-top: 25px;
-        padding-left: 25px;
-        font-family: 'Lato';
-        color: pink;
-    	text-shadow: -1px 1px 0 #000,
-				  1px 1px 0 #000,
-				 1px -1px 0 #000,
-				 -1px -1px 0 #000;
-     }
-
-     h2{
-        padding-left: 25px;
-        font-family: 'Lato';
-        color: pink;
-    	text-shadow: -1px 1px 0 #000,
-				  1px 1px 0 #000,
-				 1px -1px 0 #000,
-				 -1px -1px 0 #000;
-     }
-
-    :root {
-      --accent-color: black;
-    }
-
-     svg {
-        background-color: white;
-        font-family: 'Lato';
-     }
-
-     path.line {
-        fill: none;
-        stroke-width: 1.5px;
-      }
-
-    .annotation path {
-      stroke: var(--accent-color);
-      fill: none;
-    }
-
-    .annotation path.connector-arrow, 
-    .title text, .annotation text,
-    .annotation.callout.circle .annotation-subject path{
-      fill: var(--accent-color);
-    }
-    .annotation-note-bg {
-      fill: rgba(255, 255, 255, 0);
-    }
-
-    /* .annotation-note-title {
-      font-weight: bold;
-    } */
-
-    .annotation.xythreshold {
-      cursor: move;
-    }
-
-    .hidden {
-      display: none;
-    }
-
-    text.hover {
-      font-size: .7em;
-    }
-
-    text.title {
-      font-size: 1.1em;
-    }
-
-
-    footer {
-    margin-top: 50px;
-    font-family: 'Lato';
-    text-align: center;
-    font-size: .7em;
-        }
-
-    .copy {
-    margin-top: 25px;
-    margin-left: 25px;
-    margin-right: 50px;
-    font-family: lato;
-    text-align:justify;
-    }
-
-    ul {
-    list-style-type: square;
-    }
-    </style>
+    <link rel="stylesheet" type="text/css" href="styles.css">
 </head>
 <body>
     <div></div>
     <h1>How Florida Registers to Vote</h1>
-    <h2>Methods of New Voter Registration by Year</h2>
+    <h2>Methods of New Voter Registration by Year OR</h2>
+    <h3>A History of Making it Harder to Vote</h3>
     <svg width=960 height=500>
       <!-- <text class="title" x=500 y=50>How Florida Registers to Vote</text>
       <text x=500 y=80>Methods of New Voter Registration by Year</text> -->
     </svg>
     <div class="copy">
-    Florida has a history of close elections, but it also history of uneven access to the right to vote. Following the 2000 Presidential Election, when 537 votes in Florida decided the entire election for George W. Bush, organizations such as League of Women Voters and Rock the Vote organized voter registration drives leading to a peak in new voter registration in 2004. 
+    Florida has a history of close elections, but it also of an uneven access to the right to vote. Following the 2000 Presidential Election, when 537 votes in Florida decided the entire election for George W. Bush, organizations such as League of Women Voters and Rock the Vote organized voter registration drives leading to a peak in new voter registration in 2004. Then came new regulation.
     <br>
     <br>
-    First <a href="https://www.brennancenter.org/analysis/policy-brief-restrictions-voter-registration-drives">in 2006</a> and later in an amended form in 2011 Florida passed an <a href="https://www.nytimes.com/2012/03/28/us/restrictions-on-voter-registration-in-florida-have-groups-opting-out.html?_r=1">onerous law</a> aimed directly at limiting such drives by requiring groups to turn in each form within 48 hours of collection.
+    <a href="https://www.brennancenter.org/analysis/policy-brief-restrictions-voter-registration-drives">First in 2006</a> and later in an amended form in 2011 Florida passed an <a href="https://www.nytimes.com/2012/03/28/us/restrictions-on-voter-registration-in-florida-have-groups-opting-out.html?_r=1">onerous law</a> aimed directly at limiting such drives by through hefty fines if forms were not submitted within 48 hours of collection.
     It is uncoincidental that Black and Hispanic voters are <a href="https://www.brennancenter.org/sites/default/files/legacy/publications/State%20Restrictions%20on%20Voter%20Registration%20Drives.pdf">more likely</a> than white voters to register through such drives.
-    The same year Florida's Republican controlled Congress cut early voting. 
+    The same year Florida's Republican controlled legislature cut early voting. 
     <br>
     <br>
     I started analyzing Florida's voter registration data as a means of practicing d3, and initially thought that the prominent 2004 spike and subsequent decline of total new registred voters was a mistake in the data. Far from a mistake, I now understand the trend to be part of a clear campaign to disenfranchise voters of Florida.
@@ -123,7 +30,9 @@
     <ul>
     <li> <a href="https://www.brennancenter.org/sites/default/files/legacy/publications/State%20Restrictions%20on%20Voter%20Registration%20Drives.pdf">The Brennan Center Report</a></li>
     <li> <a href="https://www.nytimes.com/2012/03/28/us/restrictions-on-voter-registration-in-florida-have-groups-opting-out.html">The New York Times</a></li>
-    <li> <a href="    https://www.npr.org/2012/05/14/152517589/in-florida-registering-voters-a-whole-new-game">NPR</a></li>
+    <li> <a href="https://www.npr.org/2012/05/14/152517589/in-florida-registering-voters-a-whole-new-game">NPR</a></li>
+    <li> <a href="http://www.foxnews.com/us/2012/09/07/voter-registration-drives-adopting-new-sophisticated-methods.html">AP via FoxNews</a></li>
+    <li> <a href="https://www.forbes.com/sites/jordanlebeau/2016/11/07/a-state-by-state-guide-to-voter-restriction-laws/#6feb42b775cc">Forbes</a></li>
 </ul>
 </div>
     <footer>
@@ -135,6 +44,6 @@
     <script src="https://d3js.org/d3.v4.js"></script>
     <script src="https://rawgit.com/susielu/d3-annotation/master/d3-annotation.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/d3-legend/2.25.6/d3-legend.min.js"></script>
-    <script src="index.js"></script>
+    <script src="script.js"></script>
 </body>
 </html>

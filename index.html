@@ -31,7 +31,7 @@
      }
 
     :root {
-      --accent-color: #E8336D;
+      --accent-color: black;
     }
 
      svg {
@@ -41,8 +41,7 @@
 
      path.line {
         fill: none;
-        stroke: lightgrey;
-        stroke-width: 1px;
+        stroke-width: 1.5px;
       }
 
     .annotation path {
@@ -59,9 +58,9 @@
       fill: rgba(255, 255, 255, 0);
     }
 
-    .annotation-note-title {
+    /* .annotation-note-title {
       font-weight: bold;
-    }
+    } */
 
     .annotation.xythreshold {
       cursor: move;
@@ -78,6 +77,26 @@
     text.title {
       font-size: 1.1em;
     }
+
+
+    footer {
+    margin-top: 50px;
+    font-family: 'Lato';
+    text-align: center;
+    font-size: .7em;
+        }
+
+    .copy {
+    margin-top: 25px;
+    margin-left: 25px;
+    margin-right: 50px;
+    font-family: lato;
+    text-align:justify;
+    }
+
+    ul {
+    list-style-type: square;
+    }
     </style>
 </head>
 <body>
@@ -88,6 +107,31 @@
       <!-- <text class="title" x=500 y=50>How Florida Registers to Vote</text>
       <text x=500 y=80>Methods of New Voter Registration by Year</text> -->
     </svg>
+    <div class="copy">
+    Florida has a history of close elections, but it also history of uneven access to the right to vote. Following the 2000 Presidential Election, when 537 votes in Florida decided the entire election for George W. Bush, organizations such as League of Women Voters and Rock the Vote organized voter registration drives leading to a peak in new voter registration in 2004. 
+    <br>
+    <br>
+    First <a href="https://www.brennancenter.org/analysis/policy-brief-restrictions-voter-registration-drives">in 2006</a> and later in an amended form in 2011 Florida passed an <a href="https://www.nytimes.com/2012/03/28/us/restrictions-on-voter-registration-in-florida-have-groups-opting-out.html?_r=1">onerous law</a> aimed directly at limiting such drives by requiring groups to turn in each form within 48 hours of collection.
+    It is uncoincidental that Black and Hispanic voters are <a href="https://www.brennancenter.org/sites/default/files/legacy/publications/State%20Restrictions%20on%20Voter%20Registration%20Drives.pdf">more likely</a> than white voters to register through such drives.
+    The same year Florida's Republican controlled Congress cut early voting. 
+    <br>
+    <br>
+    I started analyzing Florida's voter registration data as a means of practicing d3, and initially thought that the prominent 2004 spike and subsequent decline of total new registred voters was a mistake in the data. Far from a mistake, I now understand the trend to be part of a clear campaign to disenfranchise voters of Florida.
+    <br>
+    <br>
+    Read more on restrictions on voter registration drives in Florida and other states:
+    <ul>
+    <li> <a href="https://www.brennancenter.org/sites/default/files/legacy/publications/State%20Restrictions%20on%20Voter%20Registration%20Drives.pdf">The Brennan Center Report</a></li>
+    <li> <a href="https://www.nytimes.com/2012/03/28/us/restrictions-on-voter-registration-in-florida-have-groups-opting-out.html">The New York Times</a></li>
+    <li> <a href="    https://www.npr.org/2012/05/14/152517589/in-florida-registering-voters-a-whole-new-game">NPR</a></li>
+</ul>
+</div>
+    <footer>
+            <hr>
+            The chart was made by <a href="https://eveahe.github.io">Eve Ahearn</a>, who also can be found at <a href="https://twitter.com/eveahe">@eveahe.</a>
+            <br>The data is from Florida Division of Elections</a> via <a href="https://public.enigma.com/datasets/voter-registration-method-and-location/35741668-d0c7-4a9b-bad3-8eb714c394d0">Enigma Public</a>. 
+            <br>Thanks to the many <a href="http://bl.ocks.org/">bl.ocks</a> I cobbled together to make this chart.
+        </footer>
     <script src="https://d3js.org/d3.v4.js"></script>
     <script src="https://rawgit.com/susielu/d3-annotation/master/d3-annotation.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/d3-legend/2.25.6/d3-legend.min.js"></script>

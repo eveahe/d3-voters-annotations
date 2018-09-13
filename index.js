@@ -13,8 +13,9 @@ var width = 860 - margin.left - margin.right;
 var parseTime = d3.timeParse("%d-%b-%Y");
 var _x = d3.scaleTime().range([0, width]);
 var _y = d3.scaleLinear().range([height, 0]);
-var line_colors = ["rgb(238,128,254)", "rgb(147,130,233)", "rgb(149,63,208)", "rgb(130,160,202)", "rgb(27,72,188)"]
+var line_colors = ["rgb(138,225,249)", "rgb(147,130,233)", "rgb(69,141,166)", "rgb(238,128,254)", "rgb(27,72,188)"]
 
+//"rgb(130,160,202)"
 var valueline = d3.line().x(function (d) {
   return _x(d.date);
 }).y(function (d) {
@@ -116,8 +117,8 @@ d3.tsv("test.tsv", function (error, data) {
     dy: -37,
     dx: 42,
   }].map(function (l) {
-    l.note = Object.assign({}, l.note, { title: "Registered: " + l.data.other,
-      // label: "" + l.data.date
+    l.note = Object.assign({}, l.note, { title: l.data.other.toLocaleString(),
+      label: "people"
      });
     l.subject = { radius: 6 };
 
@@ -150,7 +151,7 @@ d3.tsv("test.tsv", function (error, data) {
   svg.selectAll("g.annotation-connector, g.annotation-note").classed("hidden", true);
 
   var ordinal = d3.scaleOrdinal()
-  .domain(["Mail", "Public Assistance Offices", "DMV", "Online", "Other*"])
+  .domain(["Mail", "Public Assistance Offices", "DMV", "Online", "Voter Registration Drives*"])
   .range(line_colors);
 
 // var svg = d3.select("svg");
